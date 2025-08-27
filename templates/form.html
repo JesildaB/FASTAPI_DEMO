@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Iris Classifier</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: linear-gradient(to right, #e0f7fa, #80deea); margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+  <div style="background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0px 6px 15px rgba(0,0,0,0.2); width: 350px; text-align: center;">
+    <h2 style="margin-bottom: 20px; color: #00695c;">🌸 Enter Iris Features</h2>
+    
+    <form action="/predict" method="post" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+      <label style="font-weight: bold; color: #004d40;">Sepal Length:</label>
+      <input type="number" step="any" name="sepal_length" style="padding: 8px; border: 1px solid #b2dfdb; border-radius: 6px;">
+
+      <label style="font-weight: bold; color: #004d40;">Sepal Width:</label>
+      <input type="number" step="any" name="sepal_width" style="padding: 8px; border: 1px solid #b2dfdb; border-radius: 6px;">
+
+      <label style="font-weight: bold; color: #004d40;">Petal Length:</label>
+      <input type="number" step="any" name="petal_length" style="padding: 8px; border: 1px solid #b2dfdb; border-radius: 6px;">
+
+      <label style="font-weight: bold; color: #004d40;">Petal Width:</label>
+      <input type="number" step="any" name="petal_width" style="padding: 8px; border: 1px solid #b2dfdb; border-radius: 6px;">
+
+      <button type="submit" style="margin-top: 15px; padding: 10px; background: #009688; color: white; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s;">Predict</button>
+    </form>
+  </div>
+
+</body>
+</html>
