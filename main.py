@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 import boto3, json, os
 from dotenv import load_dotenv
 
-# Load .env
+
 load_dotenv()
 print("DEBUG ENDPOINT:", os.getenv("ENDPOINT_NAME"))
 
@@ -16,20 +16,20 @@ runtime = boto3.client("sagemaker-runtime", region_name=AWS_REGION)
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
-# ✅ Correct label mapping (Linear Learner swapped 0/1)
+
 CLASS_LABELS = {
-    0: "SETOSA",
+    0: "Setosa",
     1: "Versicolor",
     2: "Virginica"
 }
 
 def invoke_endpoint(features):
-    # Convert list of floats → CSV string
+    
     payload = ",".join(map(str, features))
     
     response = runtime.invoke_endpoint(
         EndpointName=ENDPOINT_NAME,
-        ContentType="text/csv",   # Linear Learner expects CSV
+        ContentType="text/csv",   
         Body=payload
     )
     result = response["Body"].read().decode("utf-8").strip()
@@ -39,7 +39,7 @@ def invoke_endpoint(features):
         if "predictions" in data:
             pred = data["predictions"][0]
 
-            # 🔍 Debug: print raw result
+            
             print("DEBUG RAW PREDICTION:", pred)
 
             if "predicted_label" in pred:
